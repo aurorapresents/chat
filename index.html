@@ -1,37 +1,67 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Aurora – Smart AI Waste Assistant</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Aurora — Offline AI Waste Assistant</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
   <div class="app">
-    <header>
-      <h1>🌸 Aurora</h1>
-      <p>Your Offline AI Waste Separator Assistant</p>
+    <header class="topbar">
+      <div class="left">
+        <div class="logo">Aurora</div>
+        <div class="brand">
+          <div class="title">AI Smart Waste Separator</div>
+          <div class="subtitle">Offline assistant for project & proposal</div>
+        </div>
+      </div>
+
+      <div class="right">
+        <div class="theme-selector" aria-hidden="false">
+          <button class="theme-btn" data-theme="dark" title="Dark">Dark</button>
+          <button class="theme-btn" data-theme="light" title="Light">Light</button>
+          <button class="theme-btn" data-theme="pink" title="Pink">Pink</button>
+          <button class="theme-btn" data-theme="blue" title="Blue">Blue</button>
+        </div>
+        <button id="clearBtn" class="icon-btn" title="Clear chat">Clear</button>
+      </div>
     </header>
 
-    <main id="chat-container">
-      <div id="chat-log"></div>
+    <main class="main">
+      <section class="info-panel">
+        <h1>Aurora — Your Offline Project Helper</h1>
+        <p class="lead">Ask Aurora anything about the <strong>AI Smart Waste Separator</strong> project (materials, working, hypothesis, future scope, etc.). Works offline. Press <kbd>Enter</kbd> to send.</p>
+
+        <div class="quick-actions">
+          <button class="quick" data-q="what is ai waste separator">What is AI Waste Separator?</button>
+          <button class="quick" data-q="how it works">How it works?</button>
+          <button class="quick" data-q="materials required">Materials required</button>
+          <button class="quick" data-q="future scope">Future scope</button>
+        </div>
+      </section>
+
+      <section class="chat-area" aria-live="polite">
+        <div id="chatLog" class="chat-log" role="log">
+          <!-- messages appended here -->
+        </div>
+      </section>
     </main>
 
-    <div id="input-area">
-      <input
-        type="text"
-        id="user-input"
-        placeholder="Ask Aurora anything about your project..."
-        autocomplete="off"
-      />
-      <button id="send-btn">Send</button>
-    </div>
+    <form id="inputForm" class="input-form" autocomplete="off" role="search">
+      <input id="userInput" name="message" type="text" inputmode="text" placeholder="Type a question for Aurora..." aria-label="Message input">
+      <button id="sendBtn" type="submit" class="send">Send</button>
+      <button id="micBtn" type="button" class="icon-btn" title="Speak (not required)">🎤</button>
+    </form>
 
-    <footer>
-      <p>Made with 💙 by AS | Powered by Offline LLM Logic</p>
+    <footer class="footer">
+      <div>Built for RSBVP 2025-26 • Aurora Offline Assistant</div>
+      <div class="small">Deploy: GitHub Pages — repository root</div>
     </footer>
   </div>
 
+  <!-- data and logic -->
   <script src="data.js"></script>
   <script src="script.js"></script>
 </body>
