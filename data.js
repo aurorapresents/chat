@@ -1,42 +1,60 @@
-const knowledgeBase = {
+/* data.js - Aurora's offline knowledge base
+   Keys are simple phrases; responses are arrays (random pick)
+*/
+
+const AURORA_KB = {
   "what is ai waste separator": [
-    "AI Waste Separator is a smart system that uses sensors and AI to detect and separate waste into categories automatically.",
-    "It’s an intelligent bin that identifies the type of waste using camera and AI algorithms, sorting it into correct compartments.",
-    "A device powered by machine learning to classify waste as organic, plastic, or metal and sort them automatically."
+    "AI Waste Separator is a smart system that uses cameras, sensors and machine learning to identify and sort waste items into categories like organic, plastic, paper and metal.",
+    "It’s essentially a smart dustbin: a camera captures the object, an AI model classifies it, and mechanical gates drop it into the right compartment.",
+    "Think of it as an intelligent sorting assistant that reduces human handling of waste and improves recycling efficiency."
   ],
+
   "how it works": [
-    "When waste is detected, a camera scans it, and AI identifies the material type using image recognition. Then, servo motors move it to the correct bin.",
-    "The system uses image capture, AI prediction, and motor control to separate different types of waste without human help.",
-    "It works using sensors and neural networks that visually analyze the object and trigger a sorting mechanism."
+    "When you place an item, a sensor triggers the camera. The image is processed by an AI model which predicts the item type — a servo motor then opens the correct gate and the item falls into the chosen bin.",
+    "The working pipeline is: Detect → Capture → Classify → Actuate. Detection triggers, capture by camera, classification by ML model, actuation by motors.",
+    "In short: the system sees the item, decides what it is using a trained model, and moves it to the correct compartment automatically."
   ],
+
+  "materials required": [
+    "Basic parts: Arduino or Raspberry Pi, camera module (PiCam / USB webcam), ultrasonic/proximity sensor, 3 servo motors, power supply, and 3 bin compartments.",
+    "You’d need microcontroller (Arduino/RPi), camera, sensors, servos, structural material (cardboard/acrylic), jumper wires and a power bank or adapter.",
+    "Materials list: controller, image sensor, actuators (servos), small conveyor or tray, LEDs for status, enclosure and small drawers or compartments."
+  ],
+
   "objectives": [
-    "The goal is to automate waste sorting, reduce human risk, and promote recycling efficiency.",
-    "Objectives include smart segregation, safety improvement, and better waste tracking via IoT.",
-    "It aims to make waste management easier, faster, and cleaner using AI and automation."
+    "Main goal: automate segregation of wet, dry and recyclable waste, reduce manual labor and improve hygiene.",
+    "Objectives include: applying AI at the edge, making low-cost solutions for schools, and demonstrating environmental impact through data.",
+    "To show how AI + simple mechanics can solve everyday problems and promote recycling in communities."
   ],
+
   "advantages": [
-    "It automates segregation, promotes hygiene, and increases recycling rates.",
-    "Advantages include speed, safety, and reduced landfill waste.",
-    "It helps the environment, saves time, and prevents workers from touching harmful materials."
+    "Automates sorting, reduces human contact with waste, saves time and increases recycling rates.",
+    "Helps collect clean separated streams, reduces landfill contamination and enables better recycling economics.",
+    "Safer for sanitation workers, educational for students, scalable to public spaces with IoT integration."
   ],
+
   "future scope": [
-    "Future versions may include voice interaction, reward systems, and better recognition models.",
-    "It could integrate with smart city data and use large language models for advanced reasoning.",
-    "Next-gen models can learn new waste types and connect directly to recycling centers."
+    "Future improvements: IoT monitoring (fill-level), solar power, reward points for citizens, and integration with recycling centers.",
+    "Next steps: deploy in schools, add barcode scanning for packaging, and connect to municipal dashboards for optimized collection.",
+    "With more data, the model can learn new categories (e.g., e-waste) and become more robust under varied lighting and occlusion."
   ],
-  "materials": [
-    "Camera, Raspberry Pi, sensors, servo motors, compartments, and power source.",
-    "AI model, camera module, ultrasonic sensor, servo motor, and control board.",
-    "Basic materials include image sensor, processor, and 3D-printed bin."
-  ],
+
   "hypothesis": [
-    "AI can automatically identify and segregate waste based on visual features.",
-    "Machine learning can recognize waste materials accurately for smart disposal.",
-    "The assumption is that AI can replace manual segregation effectively."
+    "Hypothesis: A trained AI model can reliably classify common household waste items and guide actuators to segregate them with high accuracy.",
+    "Assumption: Visual features and simple sensors provide enough information for accurate classification on a small prototype.",
+    "We assume that edge-deployable models (TFLite) will be fast enough for near real-time sorting."
   ],
+
   "introduction": [
-    "Waste is increasing rapidly. Manual sorting is unsafe. AI-based solutions can help automate the process.",
-    "In modern cities, waste handling is a challenge. AI Waste Separator offers a clean, smart approach.",
-    "To handle growing waste efficiently, AI technology can make segregation automated and precise."
+    "With increasing waste, manual sorting is slow and risky. An AI-based system can help separate waste properly and reduce environmental impact.",
+    "Problem: mixed waste creates recycling issues. Solution: an accessible automated bin that sorts at source using AI.",
+    "This project demonstrates how AI and low-cost hardware can make waste management smarter and more reliable."
   ]
 };
+
+/* Fallback responses */
+const AURORA_FALLBACKS = [
+  "I'm still learning about that. Can you rephrase?",
+  "Sorry — I don't have that specific data yet. Try asking about how it works or materials.",
+  "I don’t know that exact topic, but I can tell you about the AI Waste Separator basics."
+];
